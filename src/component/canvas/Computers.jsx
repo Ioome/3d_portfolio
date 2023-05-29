@@ -6,10 +6,11 @@ import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
-
   return (
     <mesh>
+      {/*半球光（hemisphereLight）*/}
       <hemisphereLight intensity={0.15} groundColor='black' />
+      {/*聚光灯（spotLight）*/}
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -18,7 +19,9 @@ const Computers = ({ isMobile }) => {
         castShadow
         shadow-mapSize={1024}
       />
+      {/*一个点光源（pointLight）*/}
       <pointLight intensity={1} />
+      {/*<primitive>元素用于渲染加载的GLTF模型场景*/}
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.7 : 0.75}
@@ -32,6 +35,8 @@ const Computers = ({ isMobile }) => {
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+
+  // 在useEffect钩子函数中，根据屏幕大小的变化，设置了一个isMobile的状态变量
   useEffect(() => {
     // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
