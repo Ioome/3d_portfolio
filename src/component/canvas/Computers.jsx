@@ -6,7 +6,7 @@ const Computers = () => {
     const computer = useGLTF('./desktop_pc/scene.gltf')
     return (
             <mesh>
-                <HemisphereLight />
+                <hemisphereLight />
             </mesh>
     )
 }
