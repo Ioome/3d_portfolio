@@ -14,7 +14,6 @@ const Computers = () => {
   );
 };
 
-
 const ComputerCanvas = () => {
   return (
     <Canvas
@@ -24,9 +23,7 @@ const ComputerCanvas = () => {
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-            
-         />
+        <OrbitControls />
         <Computers />
       </Suspense>
     </Canvas>
